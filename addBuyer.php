@@ -11,9 +11,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate name
     $input_name = trim($_POST["name"]);
     if(empty($input_name)){
-        $name_err = "Please enter a name.";
+        $name_err = "<sup>Please enter a name.</sup>";
     } elseif(!filter_var($input_name, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $name_err = "Please enter a valid name.";
+        $name_err = "<sup>Please enter a valid name.</sup>";
     } else{
         $name = $input_name;
     }
@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate address
     $input_address = trim($_POST["address"]);
     if(empty($input_address)){
-        $address_err = "Please enter an address.";     
+        $address_err = "<sup>Please enter an address.</sup>";     
     } else{
         $address = $input_address;
     }
@@ -29,9 +29,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate phone
     $input_phone = trim($_POST["phone"]);
     if(empty($input_phone)){
-        $phone_err = "Please enter the phone number";     
+        $phone_err = "<sup>Please enter the phone number</sup>";     
     } elseif(!ctype_digit($input_phone)){
-        $phone_err = "Please enter a valid phone number.";
+        $phone_err = "<sup>Please enter a valid phone number.</sup>";
     } else{
         $phone = $input_phone;
     }
@@ -39,9 +39,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate stockid
     $input_stockId = trim($_POST["stockId"]);
     if(empty($input_stockId)){
-        $stockId_err = "Please enter the stock ID";     
+        $stockId_err = "<sup>Please enter the stock ID</sup>";     
     } elseif(!ctype_digit($input_stockId) or !($input_stockId >= 10000001 and $input_stockId <= 10000020)){
-        $stockId_err = "Please enter a valid stock ID.";
+        $stockId_err = "<sup>Please enter a valid stock ID.</sup>";
     } else{
         $stockId = $input_stockId;
     }
@@ -84,8 +84,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Record</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Add Buyer</title>
+    <link rel="stylesheet" href="assets/baseStyle.css">
     <style>
         .wrapper{
             width: 600px;
@@ -108,7 +108,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         </div>
                         <div class="form-group">
                             <label>Address</label>
-                            <input name="address" class="form-control <?php echo (!empty($address_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $address; ?>" >
+                            <input type="text" name="address" class="form-control <?php echo (!empty($address_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $address; ?>" >
                             <span class="invalid-feedback"><?php echo $address_err;?></span>
                         </div>
                         <div class="form-group">

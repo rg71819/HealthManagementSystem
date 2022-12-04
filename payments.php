@@ -8,7 +8,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <style>
+        body{
+            text-align:center;
+        }
         .wrapper{
             width: 600px;
             margin: 0 auto;
@@ -33,7 +37,7 @@
             <option value="pending">Pending Payments list</option>
             <option value="default">Defaulters list</option>
         </select>
-        <input type="submit">
+        <input type="submit" class="btn btn-primary">
         </form>
         <div class="container-fluid">
             <div class="row">

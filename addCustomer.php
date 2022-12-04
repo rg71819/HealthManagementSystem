@@ -11,9 +11,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate name
     $input_name = trim($_POST["name"]);
     if(empty($input_name)){
-        $name_err = "Please enter a name.";
+        $name_err = "<sup>Please enter a name.</sup>";
     } elseif(!filter_var($input_name, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
-        $name_err = "Please enter a valid name.";
+        $name_err = "<sup>Please enter a valid name.</sup>";
     } else{
         $name = $input_name;
     }
@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate address
     $input_address = trim($_POST["address"]);
     if(empty($input_address)){
-        $address_err = "Please enter an address.";     
+        $address_err = "<sup>Please enter an address.</sup>";     
     } else{
         $address = $input_address;
     }
@@ -29,9 +29,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate phone
     $input_phone = trim($_POST["phone"]);
     if(empty($input_phone)){
-        $phone_err = "Please enter the phone number";     
+        $phone_err = "<sup>Please enter the phone number</sup>";     
     } elseif(!ctype_digit($input_phone)){
-        $phone_err = "Please enter a valid phone number.";
+        $phone_err = "<sup>Please enter a valid phone number.</sup>";
     } else{
         $phone = $input_phone;
     }
@@ -73,8 +73,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Record</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Add Customer</title>
+    <link rel="stylesheet" href="assets/baseStyle.css">
+
     <style>
         .wrapper{
             width: 600px;
@@ -93,11 +94,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="form-group">
                             <label>Name</label>
                             <input type="text" name="name" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $name; ?>">
-                            <span class="invalid-feedback"><?php echo $name_err;?></span>
+                            <span class="invalid-feedback"><?php echo $name_err;?></sup></span>
                         </div>
                         <div class="form-group">
                             <label>Address</label>
-                            <input name="address" class="form-control <?php echo (!empty($address_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $address; ?>" >
+                            <input type="text" name="address" class="form-control <?php echo (!empty($address_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $address; ?>" >
                             <span class="invalid-feedback"><?php echo $address_err;?></span>
                         </div>
                         <div class="form-group">

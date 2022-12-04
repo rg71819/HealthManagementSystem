@@ -3,31 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
-        .wrapper{
-            width: 600px;
-            margin: 0 auto;
-        }
-        table tr td:last-child{
-            width: 120px;
-        }
-    </style>
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
-        });
-    </script>
+    <link rel="stylesheet" href="assets/baseStyle.css">
+
 </head>
 <body>
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
+<section>
+        <header>
+            <h1>Stock Details</h1>
+        </header>
                     <?php
                     // Include config file
                     require_once "dbConfig.php";
@@ -44,6 +27,7 @@
                                         echo "<th>Quantity In Stock</th>";
                                         echo "<th>Buy Price</th>";
                                         echo "<th>Sell Price</th>";
+                                        echo "<th>Stock Next Delivery Date</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -54,6 +38,7 @@
                                         echo "<td>" . $row['QuantityInStock'] . "</td>";
                                         echo "<td>" . $row['buyPrice'] . "</td>";
                                         echo "<td>" . $row['sellPrice'] . "</td>";
+                                        echo "<td>" . $row['nextDeliveryDate'] . "</td>";
                                     echo "</tr>";
                                 }
                                 echo "</tbody>";                            
@@ -70,9 +55,6 @@
                     // Close connection
                     $dbConnection->close();
                     ?>
-                </div>
-            </div>        
-        </div>
-    </div>
+</section>
 </body>
 </html>
